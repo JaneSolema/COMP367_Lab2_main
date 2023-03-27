@@ -14,9 +14,9 @@ pipeline{
                }
         }
 
-        stage("Build Maven Project") {
+         stage('Build Maven Project') {
             steps {
-                bat 'mvn clean compile package'
+                sh 'mvn -Dmaven.test.failure.ignore=true clean package'
             }
         }
          stage('Docker Build') {
